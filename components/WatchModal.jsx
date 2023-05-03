@@ -1,7 +1,7 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 
-const WatchModal = ({ pageName }) => {
+const WatchModal = () => {
   const [showModal, setShowModal] = useState(true)
 
   const [order, setOrder] = useState(null)
@@ -71,7 +71,13 @@ const WatchModal = ({ pageName }) => {
       {showModal && order ? (
         <div className="flex relative w-full items-center justify-center h-[120vh] flex-col ">
           <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-10 my-auto">
-            <div className={showModal ? `max-w-xs md:max-w-[54rem] mx-auto rounded-2xl bg-white shadow-lg z-20 p-4 pb-7 translate-y-[5%] md:translate-y-[20%] overflow-y-scroll md:overflow-y-auto max-h-[90vh] transition-all duration-300 ease-in-out` : null}>
+            <div
+              className={
+                showModal
+                  ? `max-w-xs md:max-w-[54rem] mx-auto rounded-2xl bg-white shadow-lg z-20 p-4 pb-7 translate-y-[5%] md:translate-y-[20%] overflow-y-scroll md:overflow-y-auto max-h-[90vh] transition-all duration-300 ease-in-out`
+                  : null
+              }
+            >
               <div className="text-right">
                 <button
                   onClick={toggleModal}
@@ -128,18 +134,19 @@ const WatchModal = ({ pageName }) => {
                   </div>
                 </div>
                 <div className="bg-gray-100 p-6 rounded-3xl mx-5">
-                  <div className="py-6">
+                  <div className="py-3">
                     <hr className="mb-3 w-full border-gray-300" />
                     <div className="grid grid-cols-4">
                       <div className="col-span-3">
-                        <div className="font-semibold">
-                          {order.listing.model.displayName}
-                        </div>
-                        <div className="font-semibold">
+                        <div className="font-[470] text-[#2F4D45]">
                           {order.listing.model.brand.displayName}
                         </div>
-                        <div className="text-s text-gray-500 py-2 ">
-                          {order.listing.condition} /{" "}
+                        <div className="font-[470] text-[#2F4D45]">
+                          {order.listing.model.displayName}
+                        </div>
+                        <div className="text-s text-gray-500 py-2">
+                        <span>{order.listing.condition[0]}</span>
+                          <span className="lowercase">{order.listing.condition.slice(1,3)}</span> /{" "}
                           {order.listing.manufactureYear}
                         </div>
                       </div>
@@ -156,7 +163,7 @@ const WatchModal = ({ pageName }) => {
                       <div className="text-left col-span-2 text-gray-500">
                         <div className="text-sm py-2">Selling Price</div>
                         <div className="text-sm py-2">
-                          Level 1 Commission (6.5%)
+                          Level 1 Commission ({(order.commissionRateBips / 100)}%)
                         </div>
                         <div className="text-sm py-2">Seller fee</div>
                         <div className="text-sm py-2">Insured Shipping</div>
@@ -193,14 +200,14 @@ const WatchModal = ({ pageName }) => {
                     <hr className="my-3 w-full border-gray-300" />
                     <div className="grid grid-cols-2 font-bold">
                       <div className="text-left">
-                        <div className="text-sm py-2">Earnings</div>
+                        <div className="text-sm py-2 text-[#1A3A32]">Earnings</div>
                       </div>
                       <div className="text-right">
-                        <div className="text-sm py-2">
+                        <div className="text-sm py-2 text-[#1A3A32]">
                           {(
-                            order.salePriceCents / 100 +
+                            order.salePriceCents / 100 -
                             (order.commissionRateBips / 10000) *
-                              (order.salePriceCents / 100) +
+                              (order.salePriceCents / 100) -
                             order.sellerFeeCents / 100
                           ).toLocaleString("en-US", {
                             style: "currency",
