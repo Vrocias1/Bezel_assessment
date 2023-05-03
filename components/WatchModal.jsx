@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react"
 
 const WatchModal = () => {
   const [showModal, setShowModal] = useState(true)
-
   const [order, setOrder] = useState(null)
 
   useEffect(() => {
@@ -16,7 +15,6 @@ const WatchModal = () => {
         const regex = /\,(?!\s*?[\{\[\"\'\w])/g
         let cleaned_data = response.data.replace(regex, "")
         cleaned_data = JSON.parse(cleaned_data)
-        console.log(cleaned_data.listing.images[0].image.url)
         setOrder(cleaned_data)
       })
       .catch((error) => {
@@ -53,10 +51,6 @@ const WatchModal = () => {
   const toggleModal = () => {
     setShowModal(!showModal)
   }
-
-  useEffect(() => {
-    console.log(showModal)
-  }, [showModal])
 
   return (
     <>
