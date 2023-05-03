@@ -1,4 +1,5 @@
 import axios from "axios"
+import Image from "next/image"
 import React, { useEffect, useState } from "react"
 
 const WatchModal = () => {
@@ -151,10 +152,12 @@ const WatchModal = () => {
                         </div>
                       </div>
                       <div className="col-span-1">
-                        <img
+                        <Image
                           src={`${order.listing.images[0].image.url}`}
                           alt="/"
-                          loading="lazy"
+                          width={100}
+                          height={100}
+                          className="rounded-2xl"
                         />
                       </div>
                     </div>
