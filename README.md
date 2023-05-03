@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Portfolio Website for Freelancers
 
 A simple, clean, and responsive portfolio website for freelancers to showcase their work, skills, and contact information.
@@ -35,6 +36,9 @@ A simple, clean, and responsive portfolio website for freelancers to showcase th
 ### Contact Form
 
 - Implement a contact form using a library like Formik and integrate it with an email service like SendGrid or Nodemailer.
+=======
+# Bezel_assessment
+>>>>>>> 48942cc111e5817152c066e877e30ea0f201a7ae
 
 ## How to Run
 
@@ -43,6 +47,7 @@ A simple, clean, and responsive portfolio website for freelancers to showcase th
 3. Run `npm install` to install dependencies
 4. Run `npm run dev` to start the development server
 5. Open `http://localhost:3000` to view the website in your browser.
+<<<<<<< HEAD
 
 ## Technologies Used
 
@@ -51,3 +56,5 @@ A simple, clean, and responsive portfolio website for freelancers to showcase th
 - CSS Modules or styled-components
 - Formik
 - SendGrid or Nodemailer
+=======
+>>>>>>> 48942cc111e5817152c066e877e30ea0f201a7ae
