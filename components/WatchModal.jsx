@@ -12,10 +12,11 @@ const WatchModal = () => {
         "https://eb863a74-7a4e-4daf-9540-d2db8470c18e.mock.pstmn.io/marketplace/orders/123"
       )
       .then((response) => {
-        const regex = /\,(?!\s*?[\{\[\"\'\w])/g
-        let cleaned_data = response.data.replace(regex, "")
-        cleaned_data = JSON.parse(cleaned_data)
-        setOrder(cleaned_data)
+        // const regex = /\,(?!\s*?[\{\[\"\'\w])/g
+        // console.log(response)
+        // let cleaned_data = response.data.replace(regex, "")
+        // cleaned_data = JSON.parse(cleaned_data)
+        setOrder(response.data)
       })
       .catch((error) => {
         console.log(error)
